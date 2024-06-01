@@ -1,306 +1,214 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.taskcard1}>
-        <View style={styles.group1}>
-          <Text style={styles.exercise}>Exercise</Text>
-          <Text style={styles.pushups}>Push Ups</Text>
-        </View>
-        <View style={styles.rectangle1}/>
-      </View>
-      <View style={styles.taskcard2}>
-      <View style={styles.group2}>
-          <Text style={styles.webdevelopment}>Web Development</Text>
-        </View>
-        <View style={styles.rectangle2}/>
-      </View>
-      <View style={styles.taskcard3}>
-      <View style={styles.group3}>
-          <Text style={styles.mobileapp}>Mobile App Development</Text>
-        </View>
-        <View style={styles.rectangle3}/>
-      </View>
-      <View style={styles.group4}>
-        <View style={styles.categoriescard1}>
-        <Image source={require('./assets/youngwoman.png')} style={styles.youngwoman} />
-        <View style={styles.group5}>
-        <Text style={styles.tasks12}>12 Tasks</Text>
-      <Text style={styles.Study}>Study</Text>
-        </View>
-        <View style={styles.rectangle4}/>
-        </View>
-        <View style={styles.categoriescard2}>
-        <Image source={require('./assets/youngonline.png')} style={styles.youngonline} />
-        <View style={styles.group6}>
-        <Text style={styles.tasks12}>12 Tasks</Text>
-      <Text style={styles.exercise}>Exercise</Text>
-        </View>
-        <View style={styles.rectangle5}/>
-        </View>
-      </View>
-      <Text style={styles.ongoingtask}>Ongoing Task</Text>
-      <Text style={styles.categories}>Categories</Text>
-      <View style={styles.frame1}>
+          <View style={styles.frame1}>
         <View style={styles.group7}>
           <Text style={styles.helloDevs}>Hello, Devs</Text>
           <Text style={styles.tasks}>14 tasks today</Text>
-        </View>
-        <View style={styles.profileImageContainer}>
+          <View style={styles.profileImage}>
           <View style={styles.Ellipse1} />
           <Image source={require('./assets/person.png')} style={styles.person} />
         </View>
-      </View>
-      <View style={styles.search}>
-        <View style={styles.filter}>
-          <View style={styles.group8}>
-            <View style={styles.bxslider} />
-            <View style={styles.rectangle6} />
-            <Image source={require('./assets/Vector.png')} style={styles.vector} />
-          </View>
         </View>
-        <View style={styles.searchbox}>
-          <View style={styles.group9}>
-            <View style={styles.group10}>
-              <Text style={styles.searchText}>Search</Text>
-              <View style={styles.mynaui}>
-                <Image source={require('./assets/Vector1.png')} style={styles.vector1}/>
-              </View>
-            </View>
-            <View style={styles.rectangle7} />
-          </View>
+
+      </View>
+      <View style={styles.searchSection}>
+        <TextInput style={styles.searchBox} placeholder="Search" />
+        <View style={styles.filterIcon}>
+          <Image source={require('./assets/Vector.png')} style={styles.filterImage} />
         </View>
       </View>
-    </View>
+      <Text style={styles.categories}>Categories</Text>
+      <View style={styles.group4}>
+      <View style={styles.categoriescard}>
+      <Text style={styles.categoryTitle}>12 Tasks</Text>
+      <Text style={styles.categoryTasks}>Exercise</Text>
+        <Image source={require('./assets/youngonline.png')} style={styles.categoryImage} />
+        <View style={styles.group6}>
+        </View>
+        <View style={styles.rectangle5}/>
+        </View>
+        <View style={styles.categoriescard}>
+        <Text style={styles.categoryTitle}>12 Tasks</Text>
+      <Text style={styles.categoryTasks}>Study</Text>
+        <Image source={require('./assets/youngwoman.png')} style={styles.categoryImage} />
+         <View style={styles.rectangle4}/>
+        </View>
+      </View>
+      <Text style={styles.ongoingtask}>Ongoing Task</Text>
+      <View style={styles.taskCard}>
+      <View style={styles.group3}>
+          <Text style={styles.taskTitle}>Mobile App Development</Text>
+        </View>
+      </View>
+      <View style={styles.taskCard}>
+      <View style={styles.group2}>
+          <Text style={styles.taskTitle}>Web Development</Text>
+        </View>
+      </View>
+     <View style={styles.taskCard}>
+          <Text style={styles.taskTitle}>Push Ups</Text>
+      </View>
+</View>
   );
 }
 
 const styles = StyleSheet.create({
 container: {
-    width: 393,
-    height:852,
-    top:-428,
-    left:-409,
     borderRadius:30,
-    padding: 20,
+    flex: 1,    
     backgroundColor: '#F7F0E8',
-  },
-  taskcard1:{
-    width:354,
-    height:128,
-    top:784,
-    left:20,
-    borderRadius:15,
-    border:1,
-    backgroundColor:'#E8D1BA',
-  },
-  group1:{
-    width: 200,
-height: 35,
-top: 830,
-left: 36,
-gap: 0,
-opacity: 0,
-color: '#000000'
-  },
-  exercise:{
-    width: 50,
-height: 14,
-top: 851,
-left: 36,
-gap: 0,
-opacity: 0,
-fontfamily: 'Lato',
-fontsize: 12,
-fontweight: 400,
-lineheight: 14.4,
-textalign: 'left',
-color: '#000000',
-  },
-  pushups:{
-    width: 200,
-height: 19,
-top: 830,
-left: 36,
-gap: 0,
-opacity: 0,
-fontfamily: 'Lato',
-fontsize: 16,
-fontweight: 700,
-lineheight: 19.2,
-textalign: 'left',
-color: '#000000',
-  },
-  rectangle1:{
-    width: 354,
-height: 128,
-top: 784,
-left: 20,
-gap: 0,
-borderradius: 15,
-border: 1,
-opacity: 0,
-color: '#E8D1BA'
-  },
-  taskcard2:{
-    width:354,
-    height:128,
-    top:644,
-    left:20,
-    borderRadius:15,
-    border:1,
-    backgroundColor:'#E8D1BA', 
-  },
-  group2: {
-    width: 200,
-height: 19,
-top: 690,
-left: 36,
-gap: 0,
-opacity: 0,
-color: '#000000',
-  },
-  webdevelopment: {
-    width: 200,
-height: 19,
-top: 690,
-left: 36,
-gap: 0,
-opacity: 0,
-fontfamily: 'Lato',
-fontsize: 16,
-fontweight: 700,
-lineheight: 19.2,
-textalign: 'left',
-color: '#000000',
-  },
-  rectangle2: {
-    width: 354,
-height: 128,
-top: 644,
-left: 20,
-gap: 0,
-borderradius: 15,
-border: 1,
-opacity: 0,
-color: '#FBF9F7',
-borderColor:'#E8D1BA',
-  },
-  taskcard3:{
-    width:354,
-    height:128,
-    top:504,
-    left:20,
-    borderRadius:15,
-    border:1,
-    backgroundColor:'#E8D1BA', 
-  },
-  group3:{
-    width: 200,
-height: 19,
-top: 550,
-left: 36,
-gap: 0,
-opacity: 0,
-color:'#000000',
-  },
-  mobileapp:{
-    width: 200,
-height: 19,
-top: 550,
-left: 36,
-gap: 0,
-opacity: 0,
-fontfamily: 'Lato',
-fontsize: 16,
-fontweight: 700,
-lineheight: 19.2,
-textalign: 'left',
-color:'#000000',
-  },
-  rectangle3:{
-    width: 354,
-    height: 128,
-    top: 504,
-    left: 20,
-    gap: 0,
-    borderradius: 15,
-    border: 1,
-    opacity: 0,
-    borderColor:'#E8D1BA',
-    alignItems: 'inner'
-  },
-  group4:{
-    width:396,
-    height:192,
-    top:249,
-    left:20,
-  },
-  categoriescard1:{
-    width: 186,
-height: 192,
-top: 249,
-left: 230,
-gap: 0,
-opacity: 0,
-  },
-  
-  categoriescard2:{
-    width: 186,
-height: 192,
-top: 249,
-left: 20,
-gap: 0,
-opacity: 0,
-
-  },
-  ongoingtask:{
-    width: 120,
-height: 24,
-top: 468,
-left: 20,
-gap: 0,
-opacity: 0,
-fontfamily: 'Lato',
-fontsize: 20,
-fontweight: 700,
-lineheight: 24,
-textalign: 'left',
-color:'#000000',
-  },
-  categories:{
-    width: 96,
-height: 24,
-top: 213,
-left: 20,
-gap: 0,
-opacity: 0,
-fontfamily: 'Lato',
-fontsize: 20,
-fontweight: 700,
-lineheight: 24,
-textalign: 'left',
-color:'#000000',
+    width: 393,
+    height: 852,
+    paddingHorizontal: 20,
+    paddingTop: 50,
+    position: 'relative',
   },
   frame1:{
     width: 354,
-height:  52,
-top: 52,
-left: 20,
-gap: 134,
-opacity: 0,
+    height: 52,
+    top: -20,
+    left: 10,
   },
-  search: {
-    width: 353,
-height: 49,
-top: 134,
-left: 20,
-gap: 0,
-borderradius: 14,
-border: 1,
-opacity: 0,
+  helloDevs:{
+    fontfamily: 'Lato',
+    fontSize: 32,
+    fontweight: 700,
+    lineheight: 38.4,
   },
+  tasks:{
+    fontfamily: 'Lato',
+    fontSize: 12,
+    fontweight: 500,
+    lineheight: 14.4,
+    top: 0,
+  
+  },
+  profileImage:{
+    width: 50,
+    height: 50,
+  },
+  person:{
+    width: 46,
+    height: 45,
+    left: 260, 
+    top: -101,
+  },
+  Ellipse1:{
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'white',
+    left:257,
+    top: -50,
+  },
+  searchbackground: {
+
+  },
+  searchSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 20,
+    marginTop: 50,
+    width: 285,
+    left: 25,
+    top: -40,
+  },
+  searchIcon:{
+    width: 16,
+    height: 16,
+    left:-200,
+  },
+  searchBox: {
+    flex: 1,
+    width: 200,
+    height: 48,
+    borderRadius: 14,
+    backgroundColor: '#FBF9F7',
+    paddingHorizontal: 10,
+    fontSize: 16,
+    color: '#000',
+    Image : 'searchIcon',
+  },
+  filterIcon: {
+    width: 50,
+    height: 48,
+    right: 0,
+    borderRadius: 14,
+    backgroundColor: '#F0522F',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+  },
+  filterImage: {
+    width: 28,
+    height: 28,
+  },
+  categories:{
+    fontSize: 20,
+    fontWeight: '400',
+    color: 'black',
+    top: -30,
+  },
+  group4: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    top: -20,
+  },
+  categoriescard: {
+    width: '48%',
+    borderRadius: 15,
+    backgroundColor: '#FBF9F7',
+    padding: 15,
+  },
+  categoryImage: {
+    width: 100,
+    height: 100,
+    marginBottom: 10,
+    left: 30,
+  },
+  categoryTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
+    textAlign: 'left',
+  },
+  categoryTasks: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: '#000',
+    textAlign: 'left',
+  },
+  ongoingtask: {
+    fontSize: 20,
+    fontWeight: '400',
+    color: 'black',
+    top: -10,
+    marginBottom: 40,
+  },
+  taskCard: {
+    width: '90%',
+    height: 100,
+    borderRadius: 15,
+    backgroundColor: '#FBF9F7',
+    marginBottom: 20,
+    padding: 15,
+    top: -30,
+  },
+  taskTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
+    top: 20,
+  },
+  taskDetail: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: '#000',
+  },
+
 });
