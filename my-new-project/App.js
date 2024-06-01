@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, Image, TextInput, ScrollView, Button } from 'react-native';
 
 export default function App() {
+  const [searchText, setSearchText] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
   return (
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
     <View style={styles.container}>
           <View style={styles.frame1}>
         <View style={styles.group7}>
@@ -17,9 +20,25 @@ export default function App() {
 
       </View>
       <View style={styles.searchSection}>
-        <TextInput style={styles.searchBox} placeholder="Search" />
+        <View style={styles.searchBoxContainer}>
+          <TextInput
+            style={styles.searchBox}
+            placeholder="Search"
+            value={searchText}
+            onChangeText={setSearchText}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />          
+            <Image
+              source={require('./assets/Vector1.png')}
+              style={styles.searchIcon}
+            />
+        </View>
         <View style={styles.filterIcon}>
-          <Image source={require('./assets/Vector.png')} style={styles.filterImage} />
+          <Image
+            source={require('./assets/Vector.png')}
+            style={styles.filterImage}
+          />
         </View>
       </View>
       <Text style={styles.categories}>Categories</Text>
@@ -54,10 +73,14 @@ export default function App() {
           <Text style={styles.taskTitle}>Push Ups</Text>
       </View>
 </View>
+</ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+  },
 container: {
     borderRadius:30,
     flex: 1,    
@@ -106,51 +129,50 @@ container: {
     left:257,
     top: -50,
   },
-  searchbackground: {
-
-  },
   searchSection: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 20,
-    marginTop: 50,
-    width: 285,
-    left: 25,
-    top: -40,
+    width: '90%',
+    top: 0,
   },
-  searchIcon:{
-    width: 16,
-    height: 16,
-    left:-200,
+  searchBoxContainer: {
+    flex: 1,
+    position: 'relative',
   },
   searchBox: {
-    flex: 1,
-    width: 200,
+    width: '95%',
     height: 48,
     borderRadius: 14,
     backgroundColor: '#FBF9F7',
-    paddingHorizontal: 10,
+    paddingHorizontal: 40,
     fontSize: 16,
     color: '#000',
-    Image : 'searchIcon',
+  },
+  searchIcon: {
+    width: 16,
+    height: 16,
+    left: 20,
+    top: -30,
   },
   filterIcon: {
     width: 50,
     height: 48,
-    right: 0,
     borderRadius: 14,
     backgroundColor: '#F0522F',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 10,
+    top: -10,
   },
   filterImage: {
     width: 28,
     height: 28,
+    top: 0,
   },
   categories:{
     fontSize: 20,
-    fontWeight: '400',
+    fontWeight: '600',
     color: 'black',
     top: -30,
   },
@@ -185,7 +207,7 @@ container: {
   },
   ongoingtask: {
     fontSize: 20,
-    fontWeight: '400',
+    fontWeight: '600',
     color: 'black',
     top: -10,
     marginBottom: 40,
