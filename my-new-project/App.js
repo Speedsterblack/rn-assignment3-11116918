@@ -1,12 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Image, TextInput, ScrollView, Button } from 'react-native';
+import { StyleSheet,Text, View, SafeAreaView, Image,TextInput,TouchableOpacity, FlatList, } from 'react-native';
 
 export default function App() {
   const [searchText, setSearchText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const renderItem = ({ item }) => (
+    <TouchableOpacity style={styles.item}>
+      <Text style={styles.itemText}>{item.title}</Text>
+      <Text style={styles.subText}>12 task</Text>
+      <Image source={item.image} style={styles.itemImage} />
+    </TouchableOpacity>
+  );
+
+  const renderOngoingTask = ({item}) => (
+    <TouchableOpacity style={styles.items}>
+      <Text style={styles.ongoingTask}>{item.title}</Text>
+    </TouchableOpacity>
+  );
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
+    <SafeAreaView style={styles.SafeArea}>
     <View style={styles.container}>
           <View style={styles.frame1}>
         <View style={styles.group7}>
@@ -44,20 +57,27 @@ export default function App() {
       <Text style={styles.categories}>Categories</Text>
       <View style={styles.group4}>
       <View style={styles.categoriescard}>
-      <Text style={styles.categoryTitle}>12 Tasks</Text>
+      <Text style={styles.categoryTitle}></Text>
       <Text style={styles.categoryTasks}>Exercise</Text>
         <Image source={require('./assets/youngonline.png')} style={styles.categoryImage} />
-        <View style={styles.group6}>
-        </View>
-        <View style={styles.rectangle5}/>
         </View>
         <View style={styles.categoriescard}>
         <Text style={styles.categoryTitle}>12 Tasks</Text>
       <Text style={styles.categoryTasks}>Study</Text>
         <Image source={require('./assets/youngwoman.png')} style={styles.categoryImage} />
-         <View style={styles.rectangle4}/>
         </View>
-      </View>
+        </View>
+        <View style={styles.group4}>
+      <View style={styles.categoriescard}>
+      <Text style={styles.categoryTitle}>12 Tasks</Text>
+      <Text style={styles.categoryTasks}>Exercise</Text>
+        <Image source={require('./assets/youngonline.png')} style={styles.categoryImage} />
+        </View>
+        <View style={styles.categoriescard}>
+        <Text style={styles.categoryTitle}>Exercise</Text>
+        <Image source={require('./assets/3d-business-non-binary-person-exercises-with-dumbbells.png')} style={styles.categoryImage} />
+        </View>
+        </View>
       <Text style={styles.ongoingtask}>Ongoing Task</Text>
       <View style={styles.taskCard}>
       <View style={styles.group3}>
@@ -72,14 +92,17 @@ export default function App() {
      <View style={styles.taskCard}>
           <Text style={styles.taskTitle}>Push Ups</Text>
       </View>
+      <View style={styles.taskCard}>
+          <Text style={styles.taskTitle}>Push Ups</Text>
+      </View>
 </View>
-</ScrollView>
+</SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollContainer: {
-    flexGrow: 1,
+  SafeArea: {
+    flex: 1,
   },
 container: {
     borderRadius:30,
@@ -179,7 +202,6 @@ container: {
   group4: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    top: -20,
   },
   categoriescard: {
     width: '48%',
