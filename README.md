@@ -19,4 +19,4 @@ FlatList: It is used for Displaying lists of data that need to be scrolled verti
 
 SectionList: It is used for Lists of data that are grouped into sections, like an alphabetical list of contacts or categorized settings.
 
-![Screenshot](images/screenshot.jpg)
+![Screenshot](Images/screenshot.jpg)
